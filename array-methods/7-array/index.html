@@ -10,10 +10,13 @@
     <script src="./data.js"></script>
     <script>
       // Go through todo.md before start solving.
-      function countAllPeople() {
-        // your code goes here
-        console.log(got);
+      function countAllPeople(family) {
+        var av = family.reduce((acc,val)=>{
+          acc+=val[people.length];
+          return acc;
+        },0);
       }
+      console.log(countAllPeople(got));
 
       function peopleByHouses() {
         // your code goes here
