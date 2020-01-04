@@ -151,6 +151,9 @@ var collection = fruitBasket.reduce((obj,word,index) =>{
 },{})
 
 
+console.log("hello");
+
+
 
 // Bonus Question (Solve only if you have time)
 var matrix = [
