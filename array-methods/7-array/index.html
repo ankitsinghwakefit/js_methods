@@ -10,40 +10,95 @@
     <script src="./data.js"></script>
     <script>
       // Go through todo.md before start solving.
-      function countAllPeople(family) {
-        var av = family.reduce((acc,val)=>{
-          acc+=val[people.length];
-          return acc;
-        },0);
-      }
+      function countAllPeople(fam) {
+      var num = 0;
+      fam.houses.forEach(function(val){
+        return num += val.people.length;
+      })
+    }
       console.log(countAllPeople(got));
+
 
       function peopleByHouses() {
         // your code goes here
+        var ab = got.houses.reduce((obj,val) => {
+          obj[val.name] = val.people.length;
+          return obj;
+        },{});
+        console.length(ab);
       }
 
       function everyone() {
         // your code goes here
+       got.houses.reduce((aray,val) =>{
+         val.people.map(val1 =>{
+           aray = aray.concat(val1.name);
+         })
+         
+         return aray;
+       },[])
       }
-
       function nameWithS() {
         // your code goes here
+        return got.houses.reduce((acc, cv) => {
+					cv.people.map(data => {
+						if (data.name.toLowerCase().includes("s")) {
+							acc = acc.concat(data.name);
+						}
+					});
+					return acc;
+				}, []);
       }
 
       function nameWithA() {
         // your code goes here
+        return got.houses.reduce((acc, cv) => {
+					cv.people.map(data => {
+						if (data.name.toLowerCase().includes("a")) {
+							acc = acc.concat(data.name);
+						}
+					});
+					return acc;
+				}, []);
       }
 
       function surnameWithS() {
         // your code goes here
+        return got.houses.reduce((acc, cv) => {
+					cv.people.map(data => {
+						let info = data.name.split(" ");
+						//console.log(info);
+						if (info[1].includes("S")) {
+							acc = acc.concat(info.join(" ")); //console.log(info);
+						}
+					});
+					return acc;
+				}, []);
       }
 
       function surnameWithA() {
         // your code goes here
+        return got.houses.reduce((acc, cv) => {
+					cv.people.map(data => {
+						let info = data.name.split(" ");
+						//console.log(info);
+						if (info[1].includes("A")) {
+							acc = acc.concat(info.join(" ")); //console.log(info);
+						}
+					});
+					return acc;
+				}, []);
       }
 
       function peopleNameOfAllHouses() {
         // your code goes here
+        return got.houses.reduce((acc, cv) => {
+					acc[cv.name] = [];
+					cv.people.map(data => {
+						acc[cv.name] = acc[cv.name].concat(data.name);
+					});
+					return acc;
+				}, {});
       }
 
       // Testing your result after writing your function
