@@ -14,6 +14,14 @@ var words = [
 
 // Write a function uniqueArray that receives an array of words as a parameter. And remove the duplicates, and return a new array. 
 // (indexOf)
+function uniqueArray(statement){
+  var result = statement.filter(function(value,index){
+    return statement.indexOf(value) == index;
+  });
+  console.log(result);
+}
+
+
 
 
 
@@ -29,7 +37,10 @@ var words2 = [
 ];
 
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
-
+function search(statement,key){
+  return statement.includes(key);
+}
+console.log(search(words2,"machine"));
 
 
 
@@ -50,6 +61,26 @@ var words3 = [
 
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
 
+
+// function howManyTimes(statement,searchWord){
+//   var final_output = statement.reduce(function(count,value){
+//     if(value === searchWord){
+//       count++;
+//     }
+//   },0)
+//   console.log(count);
+// }
+howManyTimes(words3,"matter");
+
+function howManyTimes(statement,searchWord){
+  var count = 0;
+statement.forEach(value => {
+  if(value === searchWord){
+    count++
+  }
+})
+console.log(count);
+}
 
 
 
@@ -73,6 +104,14 @@ let data = [
     pop: 263991379,
   }
 ]
+var population = data.reduce((count,value) => {
+  return count+value.pop;
+},0);
+// var indexofchina = data.findIndex("China");
+// console.log(indexofchina);
+var final_pop = population - data[0].pop;
+console.log(final_pop);
+
 
 
 // Use reduce method and summorize the collection like
@@ -90,6 +129,29 @@ const fruitBasket = [
   'orange',
   'fig'
 ];
+
+var collection = fruitBasket.reduce((obj,word,index) =>{
+  var count = 1;
+  if(obj.indexOf(word) == index){
+    obj.word = count;
+  } else {
+    obj.word = count++;
+  }
+},{})
+
+
+var collection = fruitBasket.reduce((obj,word,index) =>{
+  var count = 1;
+  if(word in obj){
+    obj.word = count++;
+  } else {
+    
+    obj.word = count;
+  }
+},{})
+
+
+console.log("hello");
 
 
 
